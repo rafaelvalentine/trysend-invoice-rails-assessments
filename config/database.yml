@@ -17,7 +17,7 @@ default: &default
   encoding: unicode
   database: <%= ENV['DATABASE_NAME'] %>
   username: <%= ENV['DATABASE_USER'] || 'postgres' %>
-  password: <%= ENV['DATABASE_PASSWORD'] || 'admin' %>
+  password: <%= ENV['DATABASE_PASSWORD'] || '' %>
   port: <%= ENV['DATABASE_PORT'] || '5432' %>
   host: <%= ENV['DATABASE_HOST'] || 'localhost' %>
   # For details on connection pooling, see Rails configuration guide
@@ -26,7 +26,7 @@ default: &default
 
 development:
   <<: *default
-  database: "<%= ENV['DATABASE_NAME'] %>_development"
+  database: "<%= ENV['DATABASE_NAME'] || 'assessment' %>_development"
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -60,7 +60,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: "<%= ENV['DATABASE_NAME'] || 'try_send' %>_test"
+  database: "<%= ENV['DATABASE_NAME'] || 'assessment' %>_test"
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -84,7 +84,7 @@ test:
 #
 production:
   <<: *default
-  database: "<%= ENV['DATABASE_NAME'] || 'try_send' %>_production"
+  database: "<%= ENV['DATABASE_NAME'] || 'assessment' %>_production"
   # database: try_send_invoice_generator_rails_production
   # username: try_send_invoice_generator_rails
   # password: <%= ENV["TRY_SEND_INVOICE_GENERATOR_RAILS_DATABASE_PASSWORD"] %>
