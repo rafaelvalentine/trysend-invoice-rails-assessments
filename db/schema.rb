@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 0) do
+ActiveRecord::Schema[7.2].define(version: 2025_08_20_193643) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bl", primary_key: "id_bl", id: :integer, default: nil, force: :cascade do |t|
     t.integer "id_upload"
     t.datetime "date_upload", precision: 0
-    t.string "numero_bl", limit: 9, null: false
+    t.string "bill_number", limit: 9, null: false
     t.integer "id_client"
     t.string "consignee_code", limit: 20
     t.string "consignee_name", limit: 60
@@ -57,9 +57,10 @@ ActiveRecord::Schema[7.2].define(version: 0) do
     t.string "port_loading", limit: 60
     t.string "port_discharge", limit: 60
     t.index ["arrival_date"], name: "arrival_date"
+    t.index ["bill_number"], name: "index_bl_on_bill_number", unique: true
+    t.index ["bill_number"], name: "numero_bl"
     t.index ["consignee_code"], name: "consignee_code"
     t.index ["consignee_name"], name: "consignee_name"
-    t.index ["numero_bl"], name: "numero_bl"
     t.index ["reef"], name: "reef"
   end
 
@@ -81,7 +82,7 @@ ActiveRecord::Schema[7.2].define(version: 0) do
 
   create_table "facture", primary_key: "id_facture", id: :integer, default: nil, force: :cascade do |t|
     t.string "reference", limit: 10, null: false
-    t.string "numero_bl", limit: 9, null: false
+    t.string "bl_number", limit: 9, null: false
     t.string "code_client", limit: 20, null: false
     t.string "nom_client", limit: 60, null: false
     t.decimal "montant_facture", precision: 12, null: false
@@ -139,4 +140,6 @@ ActiveRecord::Schema[7.2].define(version: 0) do
     t.index ["reason_for_refund"], name: "reason_for_refund"
     t.index ["statut"], name: "statut"
   end
+
+  add_foreign_key "facture", "bl", column: "bl_number", primary_key: "bill_number", on_delete: :cascade
 end
