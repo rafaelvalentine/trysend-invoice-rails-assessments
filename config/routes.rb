@@ -7,4 +7,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  namespace :api, defaults: { format: "json" } do
+    namespace :v1 do
+       # resources :invoices
+       get "/invoices", to: "invoices#index"
+       get "/invoices/overdue", to: "invoices#overdue"
+       get "/invoices/generate", to: "invoices#generate"
+    end
+  end
 end
