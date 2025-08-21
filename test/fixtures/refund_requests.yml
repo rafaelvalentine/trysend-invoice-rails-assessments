@@ -4,8 +4,14 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+# one: {}
+# # column: value
+# #
+# two: {}
+# # column: value
+
+refund_requests_1:
+  id_remboursement: 1
+  bl_number: bill_of_lading_1
+  montant_demande: 480
+  statut: pending

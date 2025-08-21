@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_08_20_193643) do
     t.integer "id_upload"
     t.datetime "date_upload", precision: 0
     t.string "bill_number", limit: 9, null: false
-    t.integer "id_client"
+    t.integer "client_id"
     t.string "consignee_code", limit: 20
     t.string "consignee_name", limit: 60
     t.string "notified_code", limit: 20
@@ -100,7 +100,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_08_20_193643) do
   end
 
   create_table "remboursement", primary_key: "id_remboursement", id: :integer, default: nil, force: :cascade do |t|
-    t.string "numero_bl", limit: 9, null: false
+    t.string "bl_number", limit: 9, null: false
     t.string "montant_demande", limit: 15
     t.string "refund_amount", limit: 15
     t.string "deduction", limit: 15
@@ -141,5 +141,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_08_20_193643) do
     t.index ["statut"], name: "statut"
   end
 
+  add_foreign_key "bl", "client", primary_key: "id_client", on_delete: :cascade
   add_foreign_key "facture", "bl", column: "bl_number", primary_key: "bill_number", on_delete: :cascade
+  add_foreign_key "remboursement", "bl", column: "bl_number", primary_key: "bill_number", on_delete: :cascade
 end

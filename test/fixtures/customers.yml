@@ -4,8 +4,37 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+# one: {}
+# # column: value
+# #
+# two: {}
+# # column: value
+
+
+customer_1:
+  # user: user_client_2
+  # first_name: profile_2_firstname
+  # last_name:  profile_2_firstname
+  # profile_type: business
+  id_client: 1
+  nom: client_xo
+  code_client: cd_client_xo
+
+customer_2:
+  # user: user_client_2
+  # first_name: profile_2_firstname
+  # last_name:  profile_2_firstname
+  # profile_type: business
+  id_client: 2
+  nom: customer_xo
+  code_client: cd_customer_xo
+
+
+customer_3:
+  # user: user_client_2
+  # first_name: profile_2_firstname
+  # last_name:  profile_2_firstname
+  # profile_type: business
+  id_client: 3
+  nom: business_xo
+  code_client: cd_business_xo
