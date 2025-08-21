@@ -11,9 +11,17 @@
 # # column: value
 
 
+<% random_string = (0...10).map { ('a'..'z').to_a[rand(26)] }.join %>
+ 
+---
 invoice_1:
   id_facture: 1
-  bl_number: bill_of_lading_1
+  bl_number: 1
   montant_facture: 480
   devise: USD
   statut: pending
+  reference: <%= random_string  %>
+  code_client: cd_client_xo
+  nom_client: client_xo
+  date_facture: <%= Time.current %>
+  id_utilisateur: 1

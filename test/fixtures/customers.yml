@@ -19,6 +19,8 @@ customer_1:
   id_client: 1
   nom: client_xo
   code_client: cd_client_xo
+  nom_groupe: client_xo
+  paie_caution: 50
 
 customer_2:
   # user: user_client_2
@@ -28,6 +30,8 @@ customer_2:
   id_client: 2
   nom: customer_xo
   code_client: cd_customer_xo
+  nom_groupe: customer_xo
+  paie_caution: 200
 
 
 customer_3:
@@ -36,5 +40,7 @@ customer_3:
   # last_name:  profile_2_firstname
   # profile_type: business
   id_client: 3
-  nom: business_xo
+  nom: customer_xo
   code_client: cd_business_xo
+  nom_groupe: customer_xo
+  paie_caution: 100

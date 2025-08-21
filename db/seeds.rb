@@ -7,3 +7,10 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+require "active_record/fixtures"
+
+if Rails.env.development? || Rails.env.production?
+  tables_to_load = %w[bill_of_ladings customers invoices refund_requests]
+  ActiveRecord::FixtureSet.create_fixtures(Rails.root.join("test", "fixtures"), tables_to_load)
+end

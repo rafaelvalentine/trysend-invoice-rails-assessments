@@ -9,9 +9,10 @@
 # #
 # two: {}
 # # column: value
-
+---
 refund_requests_1:
   id_remboursement: 1
-  bl_number: bill_of_lading_1
+  bl_number: 1
   montant_demande: 480
   statut: pending
+  id_transitaire: 1

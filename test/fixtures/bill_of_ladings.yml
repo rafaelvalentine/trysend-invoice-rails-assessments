@@ -21,8 +21,8 @@ bill_of_lading_1:
   # last_name:  profile_1_lastname
   # profile_type: personal
   id_bl: 1
-  biil_number: 1
-  id_client: customer_1
+  bill_number: 1
+  client_id: 1
   arrival_date: <%= Time.current + random_num.rand(1..10).hours %>
   freetime:  <%=random_num.rand(1..10)%>
   nbre_20pieds_sec: 1
@@ -40,8 +40,8 @@ bill_of_lading_2:
   # last_name:  profile_2_firstname
   # profile_type: business
   id_bl: 2
-  biil_number: 2
-  id_client: customer_3
+  bill_number: 2
+  client_id: 3
   arrival_date: <%= Time.current + random_num.rand(1..10).days %>
   freetime:  <%=random_num.rand(1..10)%>
   nbre_20pieds_sec: <%=random_num.rand(1..10)%>
@@ -58,8 +58,8 @@ bill_of_lading_3:
   # last_name:  profile_2_firstname
   # profile_type: business
   id_bl: 3
-  biil_number: 3
-  id_client: customer_2
+  bill_number: 3
+  client_id: 2
   arrival_date: <%= Time.current + random_num.rand(1..10).days %>
   freetime:  <%=random_num.rand(1..10)%>
   nbre_20pieds_sec: <%=random_num.rand(1..10)%>
